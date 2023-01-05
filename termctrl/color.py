@@ -24,3 +24,11 @@ class BgColor(Enum):
     MAGENTA = 45
     CYAN = 46
     WHITE = 47
+
+
+def write_fg(clr: FgColor, text: str) -> str:
+    return f"{ANSI_ESC}[{clr}m{text}{ANSI_ESC}[0m"
+
+
+def write_bg(clr: BgColor, text: str) -> str:
+    return f"{ANSI_ESC}[{clr}m{text}{ANSI_ESC}[0m"
