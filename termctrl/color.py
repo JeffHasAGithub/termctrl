@@ -27,8 +27,10 @@ class BgColor(Enum):
 
 
 def write_fg(clr: FgColor, text: str) -> str:
+    clr = clr.value
     return f"{ANSI_ESC}[{clr}m{text}{ANSI_ESC}[0m"
 
 
 def write_bg(clr: BgColor, text: str) -> str:
+    clr = clr.value
     return f"{ANSI_ESC}[{clr}m{text}{ANSI_ESC}[0m"
