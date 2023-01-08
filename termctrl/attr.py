@@ -2,6 +2,7 @@ from enum import Enum
 
 
 class Format(Enum):
+    """ANSI Formatting attributes"""
     RESET = 0
     BRIGHT = 1
     DIM = 2
@@ -12,7 +13,7 @@ class Format(Enum):
 
 
 class FgColor(Enum):
-    """ANSI foreground color control values"""
+    """ANSI foreground colors"""
     BLACK = 30
     RED = 31
     GREEN = 32
@@ -24,7 +25,7 @@ class FgColor(Enum):
 
 
 class BgColor(Enum):
-    """ANSI background color control values"""
+    """ANSI background colors"""
     BLACK = 40
     RED = 41
     GREEN = 42
