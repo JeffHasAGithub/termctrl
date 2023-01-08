@@ -20,3 +20,7 @@ def clear_up(buffer=sys.stdout):
 
 def clear_dn(buffer=sys.stdout):
     buffer.write(f"{ANSI_ESC}[J")
+
+
+def clear_screen(buffer=sys.stdout):
+    buffer.write(f"{ANSI_ESC}[2J")
