@@ -8,3 +8,15 @@ def clear_ln_from_cursor(buffer=sys.stdout):
 
 def clear_ln_to_cursor(buffer=sys.stdout):
     buffer.write(f"{ANSI_ESC}[1K")
+
+
+def clear_ln(buffer=sys.stdout):
+    buffer.write(f"{ANSI_ESC}[2K")
+
+
+def clear_up(buffer=sys.stdout):
+    buffer.write(f"{ANSI_ESC}[1J")
+
+
+def clear_dn(buffer=sys.stdout):
+    buffer.write(f"{ANSI_ESC}[J")
