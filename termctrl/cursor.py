@@ -24,3 +24,11 @@ def move_fw(count=1, buffer=sys.stdout):
 
 def move_bw(count=1, buffer=sys.stdout):
     buffer.write(f"{ANSI_ESC}{count}D")
+
+
+def save(buffer=sys.stdout):
+    buffer.write(f"{ANSI_ESC}[s")
+
+
+def restore(buffer=sys.stdout):
+    buffer.write(f"{ANSI_ESC}[u")
