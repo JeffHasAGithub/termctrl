@@ -1,7 +1,11 @@
 from enum import Enum
 
 
-class Format(Enum):
+class Attr(Enum):
+    """Base attribute class"""
+
+
+class Format(Attr):
     """ANSI Formatting attributes"""
     RESET = 0
     BRIGHT = 1
@@ -12,7 +16,11 @@ class Format(Enum):
     HIDDEN = 8
 
 
-class FgColor(Enum):
+class Color(Attr):
+    """Base color class"""
+
+
+class FgColor(Color):
     """ANSI foreground colors"""
     BLACK = 30
     RED = 31
@@ -24,7 +32,7 @@ class FgColor(Enum):
     WHITE = 37
 
 
-class BgColor(Enum):
+class BgColor(Color):
     """ANSI background colors"""
     BLACK = 40
     RED = 41
