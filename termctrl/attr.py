@@ -3,11 +3,11 @@ from enum import Enum
 
 class Attr(Enum):
     """Base attribute class"""
-    RESET = 0
 
 
 class Format(Attr):
     """ANSI Formatting attributes"""
+    RESET = 0
     BRIGHT = 1
     DIM = 2
     UNDERSCORE = 4
