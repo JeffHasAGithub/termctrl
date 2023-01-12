@@ -1,6 +1,6 @@
 import sys
 from .common import ANSI_ESC
-from .attr import Attr
+from .attr import Attr, Format
 
 
 class TermCtrl():
@@ -19,7 +19,7 @@ class TermCtrl():
         self.write(f"{ANSI_ESC}[{attr}m")
 
     def reset_attrs(self):
-        self.write(f"{ANSI_ESC}[0m")
+        self.set_attr(Format.RESET)
 
     def reset_all(self):
         self.write(f"{ANSI_ESC}c")
