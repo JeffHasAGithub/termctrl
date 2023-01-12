@@ -1,10 +1,9 @@
 import sys
-from .common import ANSI_ESC
+from .common import escape
 from .attr import Attr
 
 
 class TermCtrl():
-
     def __init__(self, buffer=sys.stdout):
         self.buffer = buffer
 
@@ -16,10 +15,10 @@ class TermCtrl():
 
     def set_attr(self, attr: Attr):
         attr = attr.value
-        self.write(f"{ANSI_ESC}[{attr}m")
+        self.write(escape(f"[{attr}m"))
 
     def reset_attrs(self):
-        self.write(f"{ANSI_ESC}[0m")
+        self.set_attr(Attr.RESET)
 
     def reset_all(self):
-        self.write(f"{ANSI_ESC}c")
+        self.write(escape("c"))
