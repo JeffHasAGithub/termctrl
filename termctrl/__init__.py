@@ -4,3 +4,4 @@ __version__ = "0.1.0"
 
 from .termctrl import TermCtrl
 from .attr import FgColor, BgColor, Format
+from .eraser import Erase
