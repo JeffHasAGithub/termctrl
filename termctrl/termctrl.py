@@ -12,8 +12,8 @@ class TermCtrl():
     def write(self, s: str, *attrs: Attr):
         self.buffer.write(esc_attrs(s, *attrs))
 
-    def writeln(self, s: str):
-        self.write(s + "\n")
+    def writeln(self, s: str, *attrs: Attr):
+        self.write(esc_attrs(s + "\n", *attrs))
 
     def erase(self, e: Erase):
         self.write(esc_erase(e))
