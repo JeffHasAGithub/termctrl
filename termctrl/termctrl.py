@@ -1,7 +1,8 @@
 import sys
 from .common import escape
-from .eraser import Erase, esc_erase
 from .attr import Attr, Format
+from .cursor import esc_move, esc_save, esc_restore
+from .eraser import Erase, esc_erase
 
 
 class TermCtrl():
