@@ -24,6 +24,9 @@ class TermCtrl():
     def move(self, row: int, col: int):
         self.write(esc_move(row, col))
 
+    def save(self):
+        self.write(esc_save())
+
     def set_attr(self, attr: Attr):
         attr = attr.value
         self.write(escape(f"[{attr}m"))
