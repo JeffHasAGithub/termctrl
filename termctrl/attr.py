@@ -43,3 +43,10 @@ class BgColor(Color):
     MAGENTA = 45
     CYAN = 46
     WHITE = 47
+
+
+def esc_attrs(s: str, *attrs: Attr):
+    attr_str = "["
+    for attr in attrs:
+        attr_str += f";{attr.value}"
+    return escape(f"{attr_str}m{s}") + escape("[0m")
