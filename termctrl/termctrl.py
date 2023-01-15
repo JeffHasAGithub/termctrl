@@ -18,8 +18,11 @@ class TermCtrl():
     def erase(self, e: Erase):
         self.write(esc_erase(e))
 
-    def home(self):
+    def cursor_home(self):
         self.write(esc_move(0, 0))
+
+    def cursor_move(self, row: int, col: int):
+        self.write(esc_move())
 
     def set_attr(self, attr: Attr):
         attr = attr.value
