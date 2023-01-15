@@ -46,7 +46,14 @@ class BgColor(Color):
 
 
 def esc_attrs(s: str, *attrs: Attr):
-    attr_str = "["
-    for attr in attrs:
-        attr_str += f";{attr.value}"
-    return escape(f"{attr_str}m{s}") + escape("[0m")
+    pre = ""
+    suf = ""
+
+    if attrs is not None:
+        pre = "[0"
+        for attr in attrs:
+            pre += f";{attr.value}"
+        pre += "m"
+        suf = "[0m"
+
+    return f"{escape(pre)}{s}{escape(suf)}"
