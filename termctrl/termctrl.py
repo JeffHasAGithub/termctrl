@@ -27,6 +27,9 @@ class TermCtrl():
     def save(self):
         self.write(esc_save())
 
+    def restore(self):
+        self.write(esc_restore())
+
     def set_attr(self, attr: Attr):
         attr = attr.value
         self.write(escape(f"[{attr}m"))
