@@ -49,11 +49,11 @@ def esc_attrs(s: str, *attrs: Attr):
     pre = ""
     suf = ""
 
-    if attrs is not None:
+    if len(attrs) > 0:
         pre = "[0"
         for attr in attrs:
             pre += f";{attr.value}"
-        pre += "m"
-        suf = "[0m"
+        pre = escape(pre + "m")
+        suf = escape("[0m")
 
-    return f"{escape(pre)}{s}{escape(suf)}"
+    return f"{pre}{s}{suf}"
