@@ -18,6 +18,9 @@ class TermCtrl():
     def erase(self, e: Erase):
         self.write(esc_erase(e))
 
+    def home(self):
+        self.write(esc_move(0, 0))
+
     def set_attr(self, attr: Attr):
         attr = attr.value
         self.write(escape(f"[{attr}m"))
