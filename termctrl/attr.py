@@ -1,13 +1,14 @@
 from enum import Enum
+from .common import escape
 
 
 class Attr(Enum):
     """Base attribute class"""
-    RESET = 0
 
 
 class Format(Attr):
     """ANSI Formatting attributes"""
+    RESET = 0
     BRIGHT = 1
     DIM = 2
     UNDERSCORE = 4
@@ -42,3 +43,10 @@ class BgColor(Color):
     MAGENTA = 45
     CYAN = 46
     WHITE = 47
+
+
+def esc_attrs(s: str, *attrs: Attr):
+    attr_str = "["
+    for attr in attrs:
+        attr_str += f";{attr.value}"
+    return escape(f"{attr_str}m{s}") + escape("[0m")
