@@ -54,8 +54,8 @@ def esc_attrs(s: str, *attrs: Attr):
         pre = "[0"
 
         for attr in attrs:
-            if not isinstance(Attr):
-                raise AttrError("Invalid attribute")
+            if not isinstance(attr, Attr):
+                raise AttrError("Invalid attribute: {attr}")
 
             pre += f";{attr.value}"
         pre = escape(pre + "m")
