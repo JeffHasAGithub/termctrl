@@ -1,5 +1,6 @@
 from enum import Enum
 from .common import escape
+from .error import AttrError
 
 
 class Attr(Enum):
@@ -51,7 +52,11 @@ def esc_attrs(s: str, *attrs: Attr):
 
     if len(attrs) > 0:
         pre = "[0"
+
         for attr in attrs:
+            if not isinstance(Attr):
+                raise AttrError("Invalid attribute")
+
             pre += f";{attr.value}"
         pre = escape(pre + "m")
         suf = escape("[0m")
