@@ -3,6 +3,7 @@ from .attr import Attr, esc_attrs
 from .common import escape
 from .cursor import esc_move, esc_save, esc_restore
 from .eraser import Erase, esc_erase
+from .error import TermError
 
 
 class TermCtrl():
@@ -10,7 +11,10 @@ class TermCtrl():
         self.buffer = buffer
 
     def write(self, s: str, *attrs: Attr):
-        self.buffer.write(esc_attrs(s, *attrs))
+        try:
+            self.buffer.write(esc_attrs(s, *attrs))
+        except TermError as e:
+            print(e)
 
     def writeln(self, s: str, *attrs: Attr):
         self.write(esc_attrs(s + "\n", *attrs))
