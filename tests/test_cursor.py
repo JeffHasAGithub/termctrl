@@ -18,3 +18,9 @@ class TestCursor(unittest.TestCase):
 
         with self.assertRaises(CursorError):
             parse_position(arg)
+
+    def test_parse_position_bad_suf(self):
+        arg = "^[[17;1r"
+
+        with self.assertRaises(CursorError):
+            parse_position(arg)
