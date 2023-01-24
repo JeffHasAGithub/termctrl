@@ -1,4 +1,10 @@
+from typing import NamedTuple
 from .common import escape
+
+
+class Position(NamedTuple):
+    row: int
+    col: int
 
 
 def esc_move(row: int, col: int) -> str:
