@@ -4,3 +4,7 @@ class TermError(Exception):
 
 class AttrError(TermError):
     """Attrribute Error"""
+
+
+class CursorError(TermError):
+    """Cursor Error"""
