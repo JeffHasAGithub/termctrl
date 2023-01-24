@@ -12,3 +12,9 @@ class TestCursor(unittest.TestCase):
 
         self.assertEqual(want.row, got.row)
         self.assertEqual(want.col, got.col)
+
+    def test_parse_position_bad_pre(self):
+        arg = "^[12;24R"
+
+        with self.assertRaises(CursorError):
+            parse_position(arg)
