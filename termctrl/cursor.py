@@ -1,5 +1,6 @@
 from typing import NamedTuple
 from .common import escape
+from .error import CursorError
 
 
 class Position(NamedTuple):
