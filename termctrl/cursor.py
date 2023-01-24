@@ -16,5 +16,5 @@ def esc_restore():
     return escape("[u")
 
 
-def esc_position():
+def esc_query_position() -> str:
     return escape("[6n")
