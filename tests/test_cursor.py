@@ -4,4 +4,11 @@ from termctrl.error import CursorError
 
 
 class TestCursor(unittest.TestCase):
-    pass
+    def test_parse_position_valid(self):
+        arg = "^[[37;1R"
+
+        want = Position(37, 1)
+        got = parse_position(arg)
+
+        self.assertEqual(want.row, got.row)
+        self.assertEqual(want.col, got.col)
