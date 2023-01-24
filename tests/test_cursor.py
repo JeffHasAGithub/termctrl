@@ -24,3 +24,9 @@ class TestCursor(unittest.TestCase):
 
         with self.assertRaises(CursorError):
             parse_position(arg)
+
+    def test_parse_position_bad_row(self):
+        arg = "^[[Hi;7R"
+
+        with self.assertRaises(CursorError):
+            parse_position(arg)
