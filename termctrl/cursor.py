@@ -14,3 +14,7 @@ def esc_save() -> str:
 def esc_restore():
     """Restore cursor to last saved position"""
     return escape("[u")
+
+
+def esc_position():
+    return escape("[6n")
